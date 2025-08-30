@@ -1,30 +1,94 @@
 :root {
-  --color-text-dark: #1a1a1a;
-  --color-text-light: #fafafa;
+  --color-dark: #1a1a1a;
+  --color-light: #fafafa;
 
-  --color-background-dark: #383838;
-  --color-background-light: #fafafa;
+  --text-size-base: 1rem;
+  --text-size-h6: 1.2rem;
+  --text-size-h5: 1.44rem;
+  --text-size-h4: 1.728rem;
+  --text-size-h3: 2.074rem;
+  --text-size-h2: 2.488rem;
+  --text-size-h1: 2.986rem;
+  --text-size-h0: 3.583rem;
 }
 
 body {
-  background: var(--color-background-light);
-  color: var(--color-text-dark);
+  background: var(--color-light);
+  color: var(--color-dark);
+  margin: 0;
+
+  font-size: var(--text-base);
 }
 
-body > * {
-  max-width: 60rem;
-  margin: 0 auto;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Source Serif 4", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+h1 {
+  font-size: var(--text-size-h1);
+}
+h2 {
+  font-size: var(--text-size-h2);
+}
+h3 {
+  font-size: var(--text-size-h3);
+}
+h4 {
+  font-size: var(--text-size-h4);
+}
+h5 {
+  font-size: var(--text-size-h5);
+}
+h6 {
+  font-size: var(--text-size-h6);
+}
+
+body {
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body > nav {
+  height: 5rem;
+}
+
+body > header > *,
+main > section > * {
+  width: 100%;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 body > header {
-  min-height: 40vh;
+  min-height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+body > header > h1 {
+  font-size: var(--text-size-h0);
+  margin-bottom: 1rem;
+}
+
+body > header > p {
+  font-size: var(--text-size-h5);
+  margin-top: 1rem;
+}
+
 body > main > section {
-  margin-bottom: 8rem;
+  padding: 4rem 0 6rem;
 }
 
 section > ol,
@@ -36,27 +100,16 @@ section > ul {
 section > ul {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 1rem;
+  gap: 2rem;
 }
 
 section > ul > li {
-  background: var(--color-background-dark);
-  color: var(--color-text-light);
-  padding: 2rem 1rem;
-  border-radius: 0.5rem;
+  margin-bottom: 2rem;
 }
 
-section > ul > li > strong {
-  display: block;
-}
-
-button {
-  all: unset;
-  cursor: pointer;
-  background: var(--color-3);
-  color: var(--color-text-light);
-  padding: 1rem;
-  font-weight: 700;
+section:nth-child(2) {
+  background: var(--color-dark);
+  color: var(--color-light);
 }
 
 section > ol > li {
