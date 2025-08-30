@@ -1,0 +1,63 @@
+:root {
+  --color-text-dark: #1a1a1a;
+  --color-text-light: #fafafa;
+
+  --color-background-dark: #383838;
+  --color-background-light: #fafafa;
+}
+
+body {
+  background: var(--color-background-light);
+  color: var(--color-text-dark);
+}
+
+body > * {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+body > header {
+  min-height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+body > main > section {
+  margin-bottom: 8rem;
+}
+
+section > ol,
+section > ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+section > ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+section > ul > li {
+  background: var(--color-background-dark);
+  color: var(--color-text-light);
+  padding: 2rem 1rem;
+  border-radius: 0.5rem;
+}
+
+section > ul > li > strong {
+  display: block;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+  background: var(--color-3);
+  color: var(--color-text-light);
+  padding: 1rem;
+  font-weight: 700;
+}
+
+section > ol > li {
+}
