@@ -5,7 +5,6 @@ const draw_arrow = function (index) {
   const svg = d3
     .select(`main > section:nth-child(3) > ol > li:nth-child(${index})`)
     .append("svg")
-    .attr("id", "arrow-svg")
     .style("position", "absolute")
     .style("left", "0")
     .style("top", "20%")
@@ -24,7 +23,6 @@ const draw_arrow = function (index) {
     controlY = startY;
     endX = width * 0.75;
     endY = height * 0.6;
-    controlX = endX;
     controlX = startX + (endX - startX) * 0.75;
   } else {
     // Bottom left to top right
@@ -47,15 +45,28 @@ const draw_arrow = function (index) {
 
   path
     .attr("stroke-dasharray", totalLength + " " + totalLength)
-    .attr("stroke-dashoffset", totalLength)
-    .transition()
-    .duration(1000)
-    .delay(500 + index * 500)
-    .attr("stroke-dashoffset", 0);
+    .attr("stroke-dashoffset", totalLength);
+
+  return svg.node();
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-  draw_arrow(1);
-  draw_arrow(2);
-  draw_arrow(3);
+  const nodes = [1, 2, 3].map((i) => draw_arrow(i));
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const svg = entry.target;
+
+          const path = d3.select(svg).select("path");
+          path.transition().duration(1000).attr("stroke-dashoffset", 0);
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 1 },
+  );
+
+  nodes.forEach((node) => observer.observe(node));
 });
