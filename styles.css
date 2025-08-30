@@ -55,10 +55,40 @@ h6 {
   font-size: var(--text-size-h6);
 }
 
+a {
+  color: #0077b2;
+}
+
+a:hover {
+  color: #53afdc;
+}
+
+a:visited {
+  color: #003c5a;
+}
+
 ol,
 ul {
   list-style-type: none;
   padding: 0;
+}
+
+p,
+ul > li,
+ol > li {
+  line-height: 1.6rem;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dt:after {
+  content: ":";
+}
+
+dd {
+  margin-bottom: 1rem;
 }
 
 body {
@@ -73,7 +103,8 @@ body > nav {
 }
 
 body > header > *,
-main > section > * {
+main > section > *,
+body > footer > * {
   width: 100%;
   max-width: 64rem;
   margin-left: auto;
@@ -101,7 +132,7 @@ main > section {
   padding: 4rem 0 8rem;
 }
 
-main > section > ul {
+main > section:nth-child(1) > ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
@@ -113,7 +144,9 @@ main > section:nth-child(2) {
 }
 
 main > section:nth-child(2) > ul {
+  display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
 }
 
 main > section:nth-child(2) > p {
@@ -122,7 +155,7 @@ main > section:nth-child(2) > p {
 
 main > section:nth-child(3),
 main > section:nth-child(4) {
-  padding-bottom: 0;
+  padding-bottom: 4rem;
 }
 
 main > section > ol {
@@ -162,10 +195,11 @@ main > section:nth-child(4) > article > footer {
   grid-column: span 3;
 }
 
-main > section:nth-child(4) dt {
-  font-weight: 700;
+main > section:nth-child(4) > article > section > ul > li {
+  margin-bottom: 1rem;
 }
 
-main > section:nth-child(4) dt:after {
-  content: ":";
+body > footer {
+  background: var(--color-dark);
+  padding: 4rem 0 8rem;
 }
