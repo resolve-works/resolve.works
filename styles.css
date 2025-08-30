@@ -55,6 +55,12 @@ h6 {
   font-size: var(--text-size-h6);
 }
 
+ol,
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
 body {
   font-family: "Source Sans 3", sans-serif;
   font-optical-sizing: auto;
@@ -95,12 +101,6 @@ main > section {
   padding: 4rem 0 8rem;
 }
 
-main > section > ol,
-main > section > ul {
-  list-style-type: none;
-  padding: 0;
-}
-
 main > section > ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -120,49 +120,52 @@ main > section:nth-child(2) > p {
   margin-top: 4rem;
 }
 
-main > section > ol {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+main > section:nth-child(3),
+main > section:nth-child(4) {
+  padding-bottom: 0;
 }
 
-main > section > ol > li {
-  grid-column: span 2;
-  background: var(--color-dark);
-  color: var(--color-light);
-  position: relative;
-  --list-margin: 4rem;
-  margin-bottom: var(--list-margin);
-  padding: 0 2rem 3rem;
+main > section > ol {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
 }
 
 main > section > ol > li:nth-child(1) {
-  grid-column: 1 / span 2;
+  grid-column: 1 / span 4;
+  grid-row: 1;
 }
 
 main > section > ol > li:nth-child(2) {
-  grid-column: 2 / span 2;
+  grid-column: 2 / span 3;
+  grid-row: 2;
 }
 
 main > section > ol > li:nth-child(3) {
   grid-column: 3 / span 2;
+  grid-row: 3;
 }
 
 main > section > ol > li:nth-child(4) {
-  grid-column: 4 / span 2;
+  grid-column: 4;
+  grid-row: 4;
 }
 
-main > section > ol > li:before {
-  content: "↓";
-  font-size: var(--text-size-h2);
-  position: absolute;
-  line-height: var(--list-margin);
-  left: 0;
-  bottom: 100%;
-  width: 50%;
-  text-align: center;
-  color: var(--color-dark);
+main > section:nth-child(4) > article {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
-main > section > ol > li:first-child:before {
-  display: none;
+main > section:nth-child(4) > article > header,
+main > section:nth-child(4) > article > footer {
+  grid-column: span 3;
+}
+
+main > section:nth-child(4) dt {
+  font-weight: 700;
+}
+
+main > section:nth-child(4) dt:after {
+  content: ":";
 }

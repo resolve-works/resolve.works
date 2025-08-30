@@ -106,7 +106,7 @@
       </section>
 
       <section>
-        <h2>Our workflow</h2>
+        <h2>From roadmap to rollout</h2>
         <ol>
           <li>
             <h4>Diagnose</h4>
@@ -131,8 +131,15 @@
         <h2>Showcase solution</h2>
 
         <article>
-          <h3>PoliLoom: structuring politicians' data for investigators</h3>
-          <p>Client: OpenSanctions, Role: Data Developer (2025–present)</p>
+          <header>
+            <h3>PoliLoom &mdash; Structuring politicians' data</h3>
+            <dl>
+              <dt>Client</dt>
+              <dd>OpenSanctions</dd>
+              <dt>Role</dt>
+              <dd>Data Developer (2025–present)</dd>
+            </dl>
+          </header>
 
           <section>
             <h4>The problem</h4>
@@ -147,19 +154,21 @@
             <h4>Solution highlights</h4>
             <ul>
               <li>
-                Two-stage extraction pipeline: LLM extracts free-text positions
-                → vector search maps to exact Wikidata entities → LLM reconciles
+                <strong>Two-stage extraction pipeline</strong>: LLM extracts
+                free-text positions → vector search maps to exact Wikidata
+                entities → LLM reconciles.
               </li>
               <li>
-                Embeddings with SentenceTransformers; pgvector in Postgres for
-                fast similarity search
+                <strong>Fast similarity search</strong>: Embeddings with
+                SentenceTransformers; pgvector in Postgres.
               </li>
               <li>
-                FastAPI API and Next.js confirmation GUI for human verification
+                <strong>Source verification</strong>: FastAPI API and Next.js
+                confirmation GUI for human verification.
               </li>
               <li>
-                Parallel dump processing: near-linear speedup to 32+ cores;
-                1.8TB dump processed in passes
+                <strong>Parallel dump processing</strong>: near-linear speedup
+                to 32+ cores; 1.8TB dump processed in passes.
               </li>
             </ul>
           </section>
@@ -167,30 +176,32 @@
           <section>
             <h4>Impact</h4>
             <ul>
-              <li>Trust: Clear citations and GUI for verification</li>
               <li>
-                Scale: Parallelized, test-backed pipeline; batch DB operations
+                <strong>Trust</strong>: Clear citations from archived pages in
+                GUI for verification.
               </li>
               <li>
-                Clarity: From unstructured source documents to structured,
-                linkable positions
+                <strong>Scale</strong>: Parallelized, test-backed pipeline;
+                batched database operations.
+              </li>
+              <li>
+                <strong>Clarity</strong>: From unstructured source documents to
+                structured, linkable positions
               </li>
             </ul>
           </section>
 
-          <blockquote>
-            "Vector search actually works, and with human-in-the-loop
-            verification, it's both accurate and accountable."
-          </blockquote>
-
-          <p>
-            <a
-              target="_blank"
-              rel="noopener"
-              href="https://discuss.opensanctions.org/t/poliloom-loom-for-weaving-politicians-data/121"
-              >Read the PoliLoom thread</a
-            >
-          </p>
+          <footer>
+            <p>
+              Vector search actually works, and with human-in-the-loop
+              verification, it's both accurate and accountable.
+              <a
+                target="_blank"
+                href="https://discuss.opensanctions.org/t/poliloom-loom-for-weaving-politicians-data/121"
+                >Read the PoliLoom thread</a
+              >
+            </p>
+          </footer>
         </article>
       </section>
 
