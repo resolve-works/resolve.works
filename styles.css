@@ -238,12 +238,17 @@ body > footer {
   color: var(--color-light);
 }
 
-body > footer > h2 {
-  margin-bottom: 1rem;
+body > footer a,
+body > footer a:visited {
+  color: #a5a5a5;
 }
 
-body > footer > p {
-  margin-top: 1rem;
+body > footer a:hover {
+  color: var(--color-light);
+}
+
+body > footer > h2 {
+  margin-bottom: 0rem;
 }
 
 @media (min-width: 768px) {
@@ -259,6 +264,16 @@ body > footer > p {
   }
 
   main > section > ol {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  body > footer > section > div {
+    grid-column: span 2;
+  }
+
+  body > footer > section {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
@@ -319,5 +334,13 @@ body > footer > p {
   main > section:nth-child(4) > article > header,
   main > section:nth-child(4) > article > footer {
     grid-column: span 3;
+  }
+
+  body > footer > section > div {
+    grid-column: span 1;
+  }
+
+  body > footer > section {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
