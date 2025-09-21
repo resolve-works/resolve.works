@@ -87,6 +87,10 @@ ul {
   padding: 0;
 }
 
+address {
+  font-style: normal;
+}
+
 p,
 ul > li,
 ol > li {
@@ -216,12 +220,23 @@ main > section:nth-child(4) > article > section > ul > li {
   margin-bottom: 1rem;
 }
 
+main > section:nth-child(5) > p > img {
+  border-radius: 50%;
+  width: 100%;
+  margin-top: 3rem;
+}
+
 body > footer {
   background: var(--color-dark);
   padding: 4rem 0 8rem;
 }
 
 @media (min-width: 768px) {
+  main > section:nth-child(5) > p > img {
+    float: right;
+    width: 50%;
+  }
+
   main > section:nth-child(2) > ul {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
