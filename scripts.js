@@ -4,12 +4,7 @@ import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 const draw_arrow = function (index) {
   const svg = d3
     .select(`main > section:nth-child(3) > ol > li:nth-child(${index})`)
-    .append("svg")
-    .style("position", "absolute")
-    .style("left", "0")
-    .style("top", "20%")
-    .style("width", "80%")
-    .style("height", "180%");
+    .append("svg");
 
   const width = svg.node().getBoundingClientRect().width;
   const height = svg.node().getBoundingClientRect().height;
