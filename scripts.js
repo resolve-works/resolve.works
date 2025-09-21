@@ -87,6 +87,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  // Render FAQ from JSON-LD
+  const faqScripts = document.querySelectorAll('script[type="application/ld+json"]');
+  faqScripts.forEach(script => {
+    try {
+      const data = JSON.parse(script.textContent);
+      if (data["@type"] === "FAQPage" && data.mainEntity) {
+        const faqSection = document.querySelector("main > section:nth-child(6)");
+        if (faqSection) {
+          data.mainEntity.forEach(item => {
+            const details = document.createElement("details");
+            const summary = document.createElement("summary");
+            const answer = document.createElement("p");
+
+            summary.textContent = item.name;
+            answer.textContent = item.acceptedAnswer.text;
+
+            details.appendChild(summary);
+            details.appendChild(answer);
+            faqSection.appendChild(details);
+          });
+        }
+      }
+    } catch (e) {
+      // Silent fail if JSON is malformed
+    }
+  });
+
   const intersectionObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {

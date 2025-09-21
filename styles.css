@@ -92,6 +92,7 @@ address {
 }
 
 p,
+summary,
 ul > li,
 ol > li {
   line-height: 1.6rem;
@@ -200,7 +201,8 @@ main > section:nth-child(2) > p {
 }
 
 main > section:nth-child(3),
-main > section:nth-child(4) {
+main > section:nth-child(4),
+main > section:nth-child(5) {
   padding-bottom: 4rem;
 }
 
