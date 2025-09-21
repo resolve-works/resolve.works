@@ -91,6 +91,10 @@ address {
   font-style: normal;
 }
 
+summary {
+  cursor: pointer;
+}
+
 p,
 summary,
 ul > li,
@@ -232,6 +236,14 @@ body > footer {
   background: var(--color-dark);
   padding: 4rem 0 8rem;
   color: var(--color-light);
+}
+
+body > footer > h2 {
+  margin-bottom: 1rem;
+}
+
+body > footer > p {
+  margin-top: 1rem;
 }
 
 @media (min-width: 768px) {
