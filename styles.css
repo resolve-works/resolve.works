@@ -2,6 +2,10 @@
   --color-dark: #1a1a1a;
   --color-light: #fafafa;
 
+  --color-primary: #0077b2;
+  --color-primary-lighter: #53afdc;
+  --color-primary-darker: #003c5a;
+
   --text-size-base: 1rem;
   --text-size-h6: 1.2rem;
   --text-size-h5: 1.44rem;
@@ -56,15 +60,15 @@ h6 {
 }
 
 a {
-  color: #0077b2;
+  color: var(--color-primary);
 }
 
 a:hover {
-  color: #53afdc;
+  color: var(--color-primary-lighter);
 }
 
 a:visited {
-  color: #003c5a;
+  color: var(--color-primary-darker);
 }
 
 ol,
@@ -126,6 +130,17 @@ body > header > h1 {
 body > header > p {
   font-size: var(--text-size-h5);
   margin-top: 1rem;
+}
+
+body > header > p > a:visited,
+body > header > p > a {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  color: var(--color-light);
+  background: var(--color-dark);
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 0.25rem;
 }
 
 main > section {
