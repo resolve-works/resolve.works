@@ -45,10 +45,21 @@ const draw_arrow = function (index) {
   return svg.node();
 };
 
-document.addEventListener("DOMContentLoaded", () => {
-  const nodes = [1, 2, 3].map((i) => draw_arrow(i));
+const drawSVGs = (intersectionObserver) => {
+  const mediaQuery = window.matchMedia("(min-width: 1024px)");
 
-  const observer = new IntersectionObserver(
+  if (mediaQuery.matches) {
+    [1, 2, 3].forEach((i) => {
+      const svg = draw_arrow(i);
+      intersectionObserver.observe(svg);
+    });
+  } else {
+    d3.selectAll("main > section:nth-child(3) > ol > li > svg").remove();
+  }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const intersectionObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -56,12 +67,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const path = d3.select(svg).select("path");
           path.transition().duration(1000).attr("stroke-dashoffset", 0);
-          observer.unobserve(entry.target);
+          intersectionObserver.unobserve(entry.target);
         }
       });
     },
     { threshold: 1 },
   );
 
-  nodes.forEach((node) => observer.observe(node));
+  const resizeObserver = new ResizeObserver(() => {
+    requestAnimationFrame(() => {
+      d3.selectAll("main > section:nth-child(3) > ol > li > svg").remove();
+      drawSVGs(intersectionObserver);
+    });
+  });
+
+  // Initial draw
+  drawSVGs(intersectionObserver);
+
+  // Observe the container for resize
+  const container = document.querySelector("main > section:nth-child(3) > ol");
+  if (container) resizeObserver.observe(container);
 });
