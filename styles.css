@@ -229,7 +229,7 @@ main > section:nth-child(4) > article > section > ul > li {
 main > section:nth-child(5) > p > img {
   border-radius: 50%;
   width: 100%;
-  margin-top: 3rem;
+  margin-top: 6rem;
 }
 
 body > footer {
