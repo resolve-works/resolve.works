@@ -1,6 +1,28 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      const analyticsConsent = localStorage.getItem("analyticsConsent");
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("consent", "default", {
+        analytics_storage: analyticsConsent == "granted" ? "granted" : "denied",
+      });
+    </script>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-Y62Q5VCTHD"
+    ></script>
+
+    <script>
+      gtag("js", new Date());
+      gtag("config", "G-Y62Q5VCTHD");
+    </script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
@@ -352,6 +374,18 @@
           </dl>
         </address>
       </section>
+
+      <nav style="display: none">
+        <p>
+          We use Google Analytics to help us understand our website traffic.
+          Will you allow us to track you?
+
+          <span>
+            <button>Yes</button>
+            <button>No</button>
+          </span>
+        </p>
+      </nav>
     </main>
 
     <footer></footer>

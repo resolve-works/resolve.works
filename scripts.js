@@ -58,7 +58,35 @@ const drawSVGs = (intersectionObserver) => {
   }
 };
 
+// Consent functions
+function grantAnalyticsConsent() {
+  gtag('consent', 'update', {
+    'analytics_storage': 'granted'
+  });
+  localStorage.setItem("analyticsConsent", "granted");
+  document.querySelector("main > nav").style.display = "none";
+}
+
+function denyAnalyticsConsent() {
+  localStorage.setItem("analyticsConsent", "denied");
+  document.querySelector("main > nav").style.display = "none";
+}
+
 document.addEventListener("DOMContentLoaded", () => {
+  // Show analytics consent banner if not set
+  const analyticsConsent = localStorage.getItem("analyticsConsent");
+  if (!analyticsConsent) {
+    const banner = document.querySelector("main > nav");
+    if (banner) {
+      banner.style.display = "block";
+
+      // Handle consent buttons
+      const buttons = banner.querySelectorAll("button");
+      buttons[0]?.addEventListener("click", grantAnalyticsConsent);
+      buttons[1]?.addEventListener("click", denyAnalyticsConsent);
+    }
+  }
+
   const intersectionObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
