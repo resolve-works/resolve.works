@@ -4,7 +4,7 @@
 
   --color-primary: #0077b2;
   --color-primary-lighter: #53afdc;
-  --color-primary-darker: #003c5a;
+  --color-primary-darker: #005179;
 
   --color-accept: #348037;
   --color-reject: #b85143;
@@ -106,12 +106,15 @@ dt {
   font-weight: 700;
 }
 
-dt:after {
-  content: ":";
-}
-
 dd {
   margin-bottom: 1rem;
+  margin-left: 0;
+}
+
+dd:before {
+  content: "↪";
+  margin-right: 0.25rem;
+  margin-left: 0.25rem;
 }
 
 body {
