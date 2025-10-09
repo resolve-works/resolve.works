@@ -1,0 +1,16 @@
+<header class="hero-block">
+    <h1>{{ self.heading }}</h1>
+    <p>
+        {{ self.body_text }}
+
+        <br />
+
+        {% if self.cta_email %}
+        <a href="mailto:{{ self.cta_email }}?subject=Free consultation request&body=Hi Johan,%0D%0A%0D%0AWe're curious about how you could help us with our current challenge.%0D%0A%0D%0A...%0D%0A%0D%0ABest regards,%0D%0A...">✉️ Book a free call</a>
+        {% endif %}
+
+        {% if self.cta_phone %}
+        <a href="tel:{{ self.cta_phone }}">💬 {{ self.cta_phone }}</a>
+        {% endif %}
+    </p>
+</header>
