@@ -1,5 +1,8 @@
+import os
 from django.core.management.base import BaseCommand
+from django.core.files.images import ImageFile
 from wagtail.models import Page, Site
+from wagtail.images.models import Image
 
 from home.models import HomePage
 
@@ -8,6 +11,27 @@ class Command(BaseCommand):
     help = 'Seeds the homepage with initial content from index.html'
 
     def handle(self, *args, **options):
+        # Load or create profile image
+        profile_image = None
+        try:
+            profile_image = Image.objects.get(title='Profile shot of Johan')
+        except Image.DoesNotExist:
+            image_path = './images/profile.webp'
+            if os.path.exists(image_path):
+                with open(image_path, 'rb') as f:
+                    profile_image = Image(
+                        title='Profile shot of Johan',
+                        file=ImageFile(f, name='profile.webp')
+                    )
+                    profile_image.save()
+                    self.stdout.write(
+                        self.style.SUCCESS('Created profile image')
+                    )
+            else:
+                self.stdout.write(
+                    self.style.WARNING(f'Profile image not found at {image_path}')
+                )
+
         # Check if HomePage already exists
         try:
             home_page = HomePage.objects.get(slug='home')
@@ -185,52 +209,61 @@ class Command(BaseCommand):
                             'value': '<p>I work remotely, Europe-focused but global clients welcome.</p>',
                         },
                         {
-                            'type': 'heading',
-                            'value': '<h4>Selected experience</h4>',
-                        },
-                        {
-                            'type': 'definition_list',
+                            'type': 'two_column',
                             'value': {
-                                'items': [
+                                'image_position': 'right',
+                                'image': profile_image.id if profile_image else None,
+                                'content': [
                                     {
-                                        'term': 'OpenSanctions',
-                                        'definition': '<p>Data Engineer (2025–present)</p>',
+                                        'type': 'heading',
+                                        'value': '<h4>Selected experience</h4>',
                                     },
                                     {
-                                        'term': 'Follow the Money',
-                                        'definition': '<p>Full Stack Developer (2021–2025)</p>',
+                                        'type': 'definition_list',
+                                        'value': {
+                                            'items': [
+                                                {
+                                                    'term': 'OpenSanctions',
+                                                    'definition': '<p>Data Engineer (2025–present)</p>',
+                                                },
+                                                {
+                                                    'term': 'Follow the Money',
+                                                    'definition': '<p>Full Stack Developer (2021–2025)</p>',
+                                                },
+                                                {
+                                                    'term': 'Forest.host',
+                                                    'definition': '<p>Founder (2017–2021)</p>',
+                                                },
+                                            ]
+                                        }
                                     },
                                     {
-                                        'term': 'Forest.host',
-                                        'definition': '<p>Founder (2017–2021)</p>',
-                                    },
-                                ]
-                            }
-                        },
-                        {
-                            'type': 'heading',
-                            'value': '<h4>Let\'s get in touch</h4>',
-                        },
-                        {
-                            'type': 'definition_list',
-                            'value': {
-                                'items': [
-                                    {
-                                        'term': 'LinkedIn',
-                                        'definition': '<p><a target="_blank" href="https://www.linkedin.com/in/johanschuijt/">https://www.linkedin.com/in/johanschuijt/</a></p>',
+                                        'type': 'heading',
+                                        'value': '<h4>Let\'s get in touch</h4>',
                                     },
                                     {
-                                        'term': 'GitHub',
-                                        'definition': '<p><a target="_blank" href="https://github.com/monneyboi/">https://github.com/monneyboi/</a></p>',
-                                    },
-                                    {
-                                        'term': 'Email',
-                                        'definition': '<p><a href="mailto:johan@resolve.works?subject=Free consultation request&body=Hi Johan,%0D%0A%0D%0AWe\'re curious about how you could help us with our current challenge.%0D%0A%0D%0A...%0D%0A%0D%0ABest regards,%0D%0A...">johan@resolve.works</a></p>',
-                                    },
-                                    {
-                                        'term': 'Phone',
-                                        'definition': '<p><a href="tel:+31651952461">+31 651 952 461</a></p>',
-                                    },
+                                        'type': 'definition_list',
+                                        'value': {
+                                            'items': [
+                                                {
+                                                    'term': 'LinkedIn',
+                                                    'definition': '<p><a target="_blank" href="https://www.linkedin.com/in/johanschuijt/">https://www.linkedin.com/in/johanschuijt/</a></p>',
+                                                },
+                                                {
+                                                    'term': 'GitHub',
+                                                    'definition': '<p><a target="_blank" href="https://github.com/monneyboi/">https://github.com/monneyboi/</a></p>',
+                                                },
+                                                {
+                                                    'term': 'Email',
+                                                    'definition': '<p><a href="mailto:johan@resolve.works?subject=Free consultation request&body=Hi Johan,%0D%0A%0D%0AWe\'re curious about how you could help us with our current challenge.%0D%0A%0D%0A...%0D%0A%0D%0ABest regards,%0D%0A...">johan@resolve.works</a></p>',
+                                                },
+                                                {
+                                                    'term': 'Phone',
+                                                    'definition': '<p><a href="tel:+31651952461">+31 651 952 461</a></p>',
+                                                },
+                                            ]
+                                        }
+                                    }
                                 ]
                             }
                         }

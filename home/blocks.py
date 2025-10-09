@@ -1,6 +1,7 @@
 """Shared blocks for the Resolve.works site."""
 
 from wagtail import blocks
+from wagtail.images.blocks import ImageChooserBlock
 
 
 class HeroBlock(blocks.StructBlock):
@@ -80,6 +81,46 @@ class DefinitionListBlock(blocks.StructBlock):
         template = "blocks/definition_list_block.html"
 
 
+class TwoColumnBlock(blocks.StructBlock):
+    """Two-column layout with image on one side and content on the other."""
+
+    image_position = blocks.ChoiceBlock(
+        choices=[
+            ("left", "Image on left"),
+            ("right", "Image on right"),
+        ],
+        default="right",
+        help_text="Which side to place the image",
+    )
+
+    image = ImageChooserBlock(required=True, help_text="Image for the column")
+
+    content = blocks.StreamBlock(
+        [
+            (
+                "heading",
+                blocks.RichTextBlock(
+                    features=["h4"], help_text="Heading (h4)"
+                ),
+            ),
+            (
+                "paragraph",
+                blocks.RichTextBlock(
+                    features=["bold", "italic", "link"], help_text="Paragraph of text"
+                ),
+            ),
+            ("definition_list", DefinitionListBlock()),
+        ],
+        required=True,
+        help_text="Content for the text column",
+    )
+
+    class Meta:
+        icon = "image"
+        label = "Two Column (Image + Content)"
+        template = "blocks/two_column_block.html"
+
+
 class SectionBlock(blocks.StructBlock):
     """Generic section block with title, background, and flexible content."""
 
@@ -112,6 +153,7 @@ class SectionBlock(blocks.StructBlock):
             ),
             ("features", FeaturesBlock()),
             ("definition_list", DefinitionListBlock()),
+            ("two_column", TwoColumnBlock()),
         ],
         required=False,
     )
