@@ -123,6 +123,25 @@ class Command(BaseCommand):
                     'background': 'light',
                     'content': [
                         {
+                            'type': 'definition_list',
+                            'value': {
+                                'items': [
+                                    {
+                                        'term': 'Project',
+                                        'definition': '<p><a href="https://loom.everypolitician.org" target="_blank">PoliLoom</a>: Structuring politicians\' data for investigators and the accountability sector.</p>',
+                                    },
+                                    {
+                                        'term': 'Client',
+                                        'definition': '<p><a href="https://www.opensanctions.org/" target="_blank">OpenSanctions</a></p>',
+                                    },
+                                    {
+                                        'term': 'Role',
+                                        'definition': '<p>Data Developer (2025–present)</p>',
+                                    },
+                                ]
+                            }
+                        },
+                        {
                             'type': 'features',
                             'value': {
                                 'features': [
@@ -140,6 +159,10 @@ class Command(BaseCommand):
                                     },
                                 ]
                             }
+                        },
+                        {
+                            'type': 'paragraph',
+                            'value': '<p>Vector search actually works, and with human-in-the-loop verification, it\'s both accurate and accountable. <a target="_blank" href="https://discuss.opensanctions.org/t/poliloom-loom-for-weaving-politicians-data/121">Read the devlog</a>.</p>',
                         }
                     ]
                 }
@@ -157,6 +180,56 @@ class Command(BaseCommand):
                         {
                             'type': 'paragraph',
                             'value': '<p>I work remotely, Europe-focused but global clients welcome.</p>',
+                        },
+                        {
+                            'type': 'heading',
+                            'value': '<h4>Selected experience</h4>',
+                        },
+                        {
+                            'type': 'definition_list',
+                            'value': {
+                                'items': [
+                                    {
+                                        'term': 'OpenSanctions',
+                                        'definition': '<p>Data Engineer (2025–present)</p>',
+                                    },
+                                    {
+                                        'term': 'Follow the Money',
+                                        'definition': '<p>Full Stack Developer (2021–2025)</p>',
+                                    },
+                                    {
+                                        'term': 'Forest.host',
+                                        'definition': '<p>Founder (2017–2021)</p>',
+                                    },
+                                ]
+                            }
+                        },
+                        {
+                            'type': 'heading',
+                            'value': '<h4>Let\'s get in touch</h4>',
+                        },
+                        {
+                            'type': 'definition_list',
+                            'value': {
+                                'items': [
+                                    {
+                                        'term': 'LinkedIn',
+                                        'definition': '<p><a target="_blank" href="https://www.linkedin.com/in/johanschuijt/">https://www.linkedin.com/in/johanschuijt/</a></p>',
+                                    },
+                                    {
+                                        'term': 'GitHub',
+                                        'definition': '<p><a target="_blank" href="https://github.com/monneyboi/">https://github.com/monneyboi/</a></p>',
+                                    },
+                                    {
+                                        'term': 'Email',
+                                        'definition': '<p><a href="mailto:johan@resolve.works?subject=Free consultation request&body=Hi Johan,%0D%0A%0D%0AWe\'re curious about how you could help us with our current challenge.%0D%0A%0D%0A...%0D%0A%0D%0ABest regards,%0D%0A...">johan@resolve.works</a></p>',
+                                    },
+                                    {
+                                        'term': 'Phone',
+                                        'definition': '<p><a href="tel:+31651952461">+31 651 952 461</a></p>',
+                                    },
+                                ]
+                            }
                         }
                     ]
                 }
