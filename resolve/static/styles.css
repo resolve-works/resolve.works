@@ -195,3 +195,26 @@ main > nav > p > span {
     margin-right: auto;
   }
 }
+
+/* Section Block Styles */
+.section {
+  padding: 4rem 0 8rem;
+}
+
+.section > * {
+  padding: 0 1rem;
+}
+
+.section-dark {
+  background: var(--color-dark);
+  color: var(--color-light);
+}
+
+@media (min-width: 1024px) {
+  .section > * {
+    width: 100%;
+    max-width: 70rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}

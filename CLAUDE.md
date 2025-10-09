@@ -6,12 +6,12 @@ Migrating static HTML site to Wagtail CMS. Single-page consulting site with sect
 
 ## Current Structure
 
-**Static files:**
+**Static files (located in project root):**
 
-- `index.html` - Single page, semantic sections
-- `styles.css` - CSS custom properties, responsive grids
-- `scripts.js` - Analytics consent
-- `images/` - Assets
+- `./index.html` - Single page, semantic sections
+- `./styles.css` - CSS custom properties, responsive grids
+- `./scripts.js` - Analytics consent
+- `./images/` - Assets
 
 **Wagtail project:**
 
