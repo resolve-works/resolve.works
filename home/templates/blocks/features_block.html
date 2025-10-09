@@ -1,0 +1,10 @@
+{% load wagtailcore_tags %}
+
+<div class="features-block">
+    {% for feature in self.features %}
+    <section>
+        <h4>{{ feature.heading }}</h4>
+        {{ feature.description }}
+    </section>
+    {% endfor %}
+</div>

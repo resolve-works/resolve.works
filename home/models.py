@@ -29,6 +29,48 @@ class HeroBlock(blocks.StructBlock):
         template = "blocks/hero_block.html"
 
 
+class FeatureItemBlock(blocks.StructBlock):
+    """Individual feature item with h4 heading."""
+
+    heading = blocks.CharBlock(required=True, max_length=100)
+    description = blocks.RichTextBlock(features=["bold", "italic", "link"])
+
+    class Meta:
+        icon = "list-ul"
+
+
+class FeaturesBlock(blocks.StructBlock):
+    """3-column features list."""
+
+    features = blocks.ListBlock(FeatureItemBlock())
+
+    class Meta:
+        icon = "list-ul"
+        label = "Features"
+        template = "blocks/features_block.html"
+
+
+class TopicItemBlock(blocks.StructBlock):
+    """Individual topic item with h6 heading."""
+
+    heading = blocks.CharBlock(required=True, max_length=100)
+    description = blocks.TextBlock(required=True, max_length=200)
+
+    class Meta:
+        icon = "tag"
+
+
+class TopicsBlock(blocks.StructBlock):
+    """4-column topics grid."""
+
+    topics = blocks.ListBlock(TopicItemBlock())
+
+    class Meta:
+        icon = "tag"
+        label = "Topics"
+        template = "blocks/topics_block.html"
+
+
 class SectionBlock(blocks.StructBlock):
     """Generic section block with title, background, and flexible content."""
 
@@ -53,6 +95,8 @@ class SectionBlock(blocks.StructBlock):
                     features=["bold", "italic", "link"], help_text="Paragraph of text"
                 ),
             ),
+            ("features", FeaturesBlock()),
+            ("topics", TopicsBlock()),
         ],
         required=False,
     )

@@ -218,3 +218,31 @@ main > nav > p > span {
     margin-right: auto;
   }
 }
+
+/* Features Block Styles */
+@media (min-width: 1024px) {
+  .features-block {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+/* Topics Block Styles */
+.topics-block + p {
+  margin-top: 4rem;
+}
+
+@media (min-width: 768px) {
+  .topics-block {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .topics-block {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
