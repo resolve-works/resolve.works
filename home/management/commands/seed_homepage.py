@@ -59,6 +59,7 @@ class Command(BaseCommand):
                         {
                             'type': 'features',
                             'value': {
+                                'columns': '3',
                                 'features': [
                                     {
                                         'heading': 'Human-centered',
@@ -85,19 +86,20 @@ class Command(BaseCommand):
                     'background': 'dark',
                     'content': [
                         {
-                            'type': 'topics',
+                            'type': 'features',
                             'value': {
-                                'topics': [
-                                    {'heading': 'Bottlenecks', 'description': 'Those specific points where work gets stuck or slowed down'},
-                                    {'heading': 'Repetitive drain', 'description': 'Tasks that exhaust people without adding value'},
-                                    {'heading': 'Information silos', 'description': 'When knowledge is trapped and hard to access'},
-                                    {'heading': 'Decision delays', 'description': 'When people wait for approvals that could be automated'},
-                                    {'heading': 'Scaling friction', 'description': 'When growth creates operational chaos'},
-                                    {'heading': 'Tool complexity', 'description': 'When systems make work harder instead of easier'},
-                                    {'heading': 'Resource limitations', 'description': 'Doing more with the same team size'},
-                                    {'heading': 'Knowledge gaps', 'description': 'When expertise is needed but not available'},
-                                    {'heading': 'Workflow confusion', 'description': 'When processes are unclear or inconsistent'},
-                                    {'heading': 'Communication overhead', 'description': 'When coordination takes more time than the actual work'},
+                                'columns': '4',
+                                'features': [
+                                    {'heading': 'Bottlenecks', 'description': '<p>Those specific points where work gets stuck or slowed down</p>'},
+                                    {'heading': 'Repetitive drain', 'description': '<p>Tasks that exhaust people without adding value</p>'},
+                                    {'heading': 'Information silos', 'description': '<p>When knowledge is trapped and hard to access</p>'},
+                                    {'heading': 'Decision delays', 'description': '<p>When people wait for approvals that could be automated</p>'},
+                                    {'heading': 'Scaling friction', 'description': '<p>When growth creates operational chaos</p>'},
+                                    {'heading': 'Tool complexity', 'description': '<p>When systems make work harder instead of easier</p>'},
+                                    {'heading': 'Resource limitations', 'description': '<p>Doing more with the same team size</p>'},
+                                    {'heading': 'Knowledge gaps', 'description': '<p>When expertise is needed but not available</p>'},
+                                    {'heading': 'Workflow confusion', 'description': '<p>When processes are unclear or inconsistent</p>'},
+                                    {'heading': 'Communication overhead', 'description': '<p>When coordination takes more time than the actual work</p>'},
                                 ]
                             }
                         },
@@ -144,6 +146,7 @@ class Command(BaseCommand):
                         {
                             'type': 'features',
                             'value': {
+                                'columns': '3',
                                 'features': [
                                     {
                                         'heading': 'The problem',

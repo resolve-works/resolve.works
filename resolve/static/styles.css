@@ -225,21 +225,20 @@ main > nav > p > span {
 }
 
 /* Features Block Styles */
+.features-block + p {
+  margin-top: 4rem;
+}
+
 @media (min-width: 1024px) {
-  .features-block {
+  .features-block-3 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
   }
 }
 
-/* Topics Block Styles */
-.topics-block + p {
-  margin-top: 4rem;
-}
-
 @media (min-width: 768px) {
-  .topics-block {
+  .features-block-4 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
@@ -247,7 +246,7 @@ main > nav > p > span {
 }
 
 @media (min-width: 1024px) {
-  .topics-block {
+  .features-block-4 {
     grid-template-columns: repeat(4, 1fr);
   }
 }

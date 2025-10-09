@@ -1,10 +1,14 @@
 {% load wagtailcore_tags %}
 
-<div class="features-block">
-    {% for feature in self.features %}
-    <section>
+<ul class="features-block features-block-{{ value.columns }}">
+    {% for feature in value.features %}
+    <li>
+        {% if value.columns == "3" %}
         <h4>{{ feature.heading }}</h4>
+        {% else %}
+        <h6>{{ feature.heading }}</h6>
+        {% endif %}
         {{ feature.description }}
-    </section>
+    </li>
     {% endfor %}
-</div>
+</ul>

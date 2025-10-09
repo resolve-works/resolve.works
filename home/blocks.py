@@ -27,7 +27,7 @@ class HeroBlock(blocks.StructBlock):
 
 
 class FeatureItemBlock(blocks.StructBlock):
-    """Individual feature item with h4 heading."""
+    """Individual feature item."""
 
     heading = blocks.CharBlock(required=True, max_length=100)
     description = blocks.RichTextBlock(features=["bold", "italic", "link"])
@@ -37,35 +37,22 @@ class FeatureItemBlock(blocks.StructBlock):
 
 
 class FeaturesBlock(blocks.StructBlock):
-    """3-column features list."""
+    """Configurable features list with 3 or 4 columns."""
 
+    columns = blocks.ChoiceBlock(
+        choices=[
+            ("3", "3 columns (h4 headings)"),
+            ("4", "4 columns (h6 headings)"),
+        ],
+        default="3",
+        help_text="Number of columns in grid layout",
+    )
     features = blocks.ListBlock(FeatureItemBlock())
 
     class Meta:
         icon = "list-ul"
         label = "Features"
         template = "blocks/features_block.html"
-
-
-class TopicItemBlock(blocks.StructBlock):
-    """Individual topic item with h6 heading."""
-
-    heading = blocks.CharBlock(required=True, max_length=100)
-    description = blocks.TextBlock(required=True, max_length=200)
-
-    class Meta:
-        icon = "tag"
-
-
-class TopicsBlock(blocks.StructBlock):
-    """4-column topics grid."""
-
-    topics = blocks.ListBlock(TopicItemBlock())
-
-    class Meta:
-        icon = "tag"
-        label = "Topics"
-        template = "blocks/topics_block.html"
 
 
 class DefinitionListItemBlock(blocks.StructBlock):
@@ -124,7 +111,6 @@ class SectionBlock(blocks.StructBlock):
                 ),
             ),
             ("features", FeaturesBlock()),
-            ("topics", TopicsBlock()),
             ("definition_list", DefinitionListBlock()),
         ],
         required=False,
